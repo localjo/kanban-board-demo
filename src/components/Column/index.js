@@ -1,12 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import AddCardForm from '../AddCardForm';
+import useWhyDidYouUpdate from '../../utils/useWhyDidYouUpdate';
 
 import css from './index.module.css';
 
 const MAX_CARDS_PER_COLUMN = 100;
 
-const Column = ({ title, children, addCard, changeCardColumn, columns }) => {
+const Column = props => {
+  const { title, children, addCard, changeCardColumn, columns } = props;
+  useWhyDidYouUpdate('Card', props);
   const [showAdd, setShowAdd] = useState();
   const isFull = children && children.length >= MAX_CARDS_PER_COLUMN;
   const accept = columns.filter(c => c !== title).map(c => 'card-' + c);

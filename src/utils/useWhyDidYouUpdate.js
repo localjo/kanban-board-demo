@@ -1,0 +1,24 @@
+import { useRef, useEffect } from 'react';
+
+function useWhyDidYouUpdate(name, props) {
+  const previousProps = useRef();
+  useEffect(() => {
+    if (previousProps.current) {
+      const allKeys = Object.keys({ ...previousProps.current, ...props });
+      const changesObj = {};
+      allKeys.forEach(key => {
+        if (previousProps.current[key] !== props[key]) {
+          changesObj[key] = {
+            from: previousProps.current[key],
+            to: props[key],
+          };
+        }
+      });
+      if (Object.keys(changesObj).length) {
+        console.log(`${name} updated because:`, changesObj);
+      }
+    }
+    previousProps.current = props;
+  });
+}
+export default useWhyDidYouUpdate;

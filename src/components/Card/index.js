@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
 import md5 from 'md5';
 import { useDrag, useDrop } from 'react-dnd';
+import useWhyDidYouUpdate from '../../utils/useWhyDidYouUpdate';
 
 import css from './index.module.css';
 
-const Card = ({ title, description, email = '', sortCard, column, index }) => {
+const Card = props => {
+  const { title, description, email = '', sortCard, column, index } = props;
+  useWhyDidYouUpdate('Card', props);
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: 'card-' + column,
