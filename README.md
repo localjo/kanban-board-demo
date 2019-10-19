@@ -1,52 +1,47 @@
 # Close Frontend Take-Home Challenge
 
-_Context: If you're seeing this, it means we'd like to see how you would solve a real-world problem. But to be totally clear, we won't be using your design or code for anything beyond deciding on moving forward in the hiring process._
+## Outline and Self-Critique
 
-## Kanban Board
+I started with building out the app's state and stubbing out the components I thought I'd need. Then I added some UI and a utility function for adding new cards. Then I added CSS and made the app look like the design specs before trying to implement the drag and drop functionality.
 
-### Overview / Background
+I used [`react-dnd`](https://github.com/react-dnd/react-dnd/) for drag and drop because it's one of the most popular libraries, and I didn't think I'd have time to implement drag and drop functionality from scratch. But it ended up having [a bug that prevents Jest tests from running correctly](https://github.com/react-dnd/react-dnd/issues/1540), and I wasted a bunch of time debugging and didn't solve in time to write as many tests as I'd like.
 
-Your goal is to implement a simple Kanban Board that allows users to create tasks and move them between columns.
+I chose to store the app's state (the cards and columns) in a single object for simplicity and used a composition pattern in the App component to pass state down into child components. This made development very easy, and kept the code mostly simple, but the downside is that any time that object changes, it causes any components that depend on it to re-render. I tried to memoize some functions to avoid this, but discovered near the end of my time that I didn't do this correctly, and that components were re-rendering too often. If I could do this again, I would use the `useReducer` hook and React Context to access the state instead, I think I would run into fewer problems that way. That didn't occur to me at the beginning because I underestimated the complexity of this exercise.
 
-You can assume the screen you'll build would live within a larger web application. This challenge is only concerned with helping users manage tasks of a particular project. You don't need to be concerned with the navigation between screens.
+In the end, due to problems with `react-dnd` and my architectural decisions with how I handled the state, I didn't have time to optimize performance as much as I'd like and write more tests, but I did add three more commits after 3 hours was up to show the work I still had in progress: 1) What I was doing to debug the performance issues. 2) The enzyme tests I was working on and 3) this README update.
 
-### Design spec
+## Screenshots
 
-Click the image below to open the Design spec in Figma.
+Note: if these don't display in the README, they can be found in the `/screenshots/` directory of this repo.
 
-[![Screenshot](./screenshot.png)](https://www.figma.com/file/tAz0AHV0d4eiUPV0ExihW6/Close-Take-Home)
+### Completed UI
 
-### Technical Requirements
+![Completed UI](/screenshots/completed-ui.png)
 
-- Create sensible git commits as you work on a solution.
-- The starting point is `src/components/screens/Board`, you can edit from there and create as many files as you want.
-- You may install 3rd party libraries to simplify the development.
-- You must use React hooks (preferred) or React classes to build the UI.
-- You may manage state in whatever way you want.
-- Make sure to avoid re-rendering of other cards when creating/moving a card.
-- We expect you to write at least a few tests.
+### Adding a Card
 
-### Grading criteria
+![Adding a card](/screenshots/add-card.gif)
 
-The ordering of criteria is arbitrary.
+### Sorting Cards
 
-- Implementing all required functionality.
-- Code quality and structure should be your #1 goal.
-- Creating great UX/UI.
-- Self-critique (see below)
+![Sorting cards](/screenshots/sort-cards.gif)
 
-### Goal and deliverables
+### Completing a Task
 
-Create a `.zip` of your solution and a `README.md` file.
+![Completing a task](/screenshots/complete-task.gif)
 
-The `README.md` should resemble a pull request description.
-It needs to include:
+## Tests
 
-- A quick outline/commentary on your UI and technical decisions with a self-critique.
-- Screenshots/GIFs of your UI and interactions.
-- What tests you performed.
-- What you would continue iterating on if you had more time.
+My submission has tests for four components. Due to [a bug with the library I used for drag and drop](https://github.com/react-dnd/react-dnd/issues/1540), I had to disable the tests for two components. Two of the components have more extensive tests. In the App component, I tested that the functions I'm using the mutate the app's state work correctly for the three critical functions of adding cards, sorting cards and changing card columns. In the AddCardForm component, I tested that the form contains all of the expected input elements when in renders.
 
-We will use the git commit history and the `README.md` to review your solution as if it was a pull request.
+## More Time
 
-To submit, email a link to a (private) `.zip` from GDrive or Dropbox to [mary@close.com with subject "Frontend Take-Home"](mailto:mary@close.com?Subject=Frontend%20Take-Home). Please don't publish the project or code publicly.
+If I had more time, I would have continued working on the following:
+
+1. Solving the problem of why the columns re-render when cards are moved. This is partially due to the decision I made to lift the state up to the App component, and partially due to not having time to properly memoize the values passed into components.
+
+2. Adding more tests.
+
+3. Improving accessibility and adding touch support.
+
+## Thank you!
