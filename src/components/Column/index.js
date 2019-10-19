@@ -3,16 +3,23 @@ import AddCardForm from '../AddCardForm';
 
 import css from './index.module.css';
 
+const MAX_CARDS_PER_COLUMN = 3;
+
 const Column = ({ title, children, addCard }) => {
   const [showAdd, setShowAdd] = useState();
+  const isFull = children && children.length >= MAX_CARDS_PER_COLUMN;
   return (
     <div className={css.column}>
       <div className={css.header}>
         <h2>{title}</h2>
-        <button className={css.add} onClick={() => setShowAdd(true)}>
+        <button
+          disabled={isFull}
+          className={css.add}
+          onClick={() => setShowAdd(true)}
+        >
           +
         </button>
-        {showAdd ? (
+        {!isFull && showAdd ? (
           <AddCardForm addCard={addCard} close={() => setShowAdd(false)} />
         ) : null}
       </div>

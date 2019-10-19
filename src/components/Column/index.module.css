@@ -34,6 +34,10 @@
   height: 24px;
   width: 24px;
 }
+.add[disabled] {
+  color: #999;
+  cursor: default;
+}
 .add:focus {
   outline: none;
   outline: 3px solid -webkit-focus-ring-color;

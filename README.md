@@ -18,7 +18,6 @@ Click the image below to open the Design spec in Figma.
 
 ### UI/UX Requirements
 
-- Each column may contain N cards (maximum of 100).
 - The user can drag the card around (drag within a column to re-order or move it to another column).
 
 ### Technical Requirements
