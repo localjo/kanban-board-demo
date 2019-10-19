@@ -19,17 +19,11 @@ Click the image below to open the Design spec in Figma.
 ### UI/UX Requirements
 
 - The layout/design must match the spec above.
-- There must be three columns:
-  - To do
-  - In progress
-  - Done
 - Each column may contain N cards (maximum of 100).
-- Each card must show a [Gravatar](https://en.gravatar.com/site/implement/images/), a title, and a description.
 - The user can drag the card around (drag within a column to re-order or move it to another column).
 - The user can add a new card by clicking `+` on any of the columns.
 - The board must take the entire height of the available screen (respecting the spacing around it).
 - Each column must be scrollable, although its header must remain fixed.
-- The changes must be persisted after a refresh (only locally).
 - In case the board is open in two different tabs: whenever something changes on one tab, the others must be updated.
 
 ### Technical Requirements
@@ -37,7 +31,6 @@ Click the image below to open the Design spec in Figma.
 - Create sensible git commits as you work on a solution.
 - The starting point is `src/components/screens/Board`, you can edit from there and create as many files as you want.
 - You may install 3rd party libraries to simplify the development.
-- The board data must be saved in the `localStorage`.
 - You must use React hooks (preferred) or React classes to build the UI.
 - You may manage state in whatever way you want.
 - Make sure to avoid re-rendering of other cards when creating/moving a card.
