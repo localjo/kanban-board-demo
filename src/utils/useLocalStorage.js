@@ -19,6 +19,9 @@ const useLocalStorage = initial => {
       console.warn(error);
     }
   };
+  window.addEventListener('storage', function(e) {
+    if (e.newValue !== e.oldValue) setValue(JSON.parse(e.newValue));
+  });
   return [storedValue, setValue];
 };
 
