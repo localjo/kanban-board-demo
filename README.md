@@ -16,10 +16,6 @@ Click the image below to open the Design spec in Figma.
 
 [![Screenshot](./screenshot.png)](https://www.figma.com/file/tAz0AHV0d4eiUPV0ExihW6/Close-Take-Home)
 
-### UI/UX Requirements
-
-- The user can drag the card around (drag within a column to re-order or move it to another column).
-
 ### Technical Requirements
 
 - Create sensible git commits as you work on a solution.

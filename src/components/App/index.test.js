@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App, { addCard, sortCards } from '.';
+import App, { addCard, sortCards, changeColumn } from '.';
 
 const card1 = {
   title: 'Card One',
@@ -44,5 +44,14 @@ describe('App Wrapper', function() {
       Done: [],
     };
     expect(sortCards(state, 0, 2, 'To do')).toMatchSnapshot();
+  });
+
+  it('correctly changes card column in the state', function() {
+    const state = {
+      'To do': [card1],
+      'In progress': [],
+      Done: [],
+    };
+    expect(changeColumn(state, 0, 'To do', 'Done')).toMatchSnapshot();
   });
 });

@@ -15,6 +15,21 @@ Object {
 }
 `;
 
+exports[`App Wrapper correctly changes card column in the state 1`] = `
+Object {
+  "Done": Array [
+    Object {
+      "column": "Done",
+      "description": "Test card",
+      "title": "Card One",
+      "user": "example@example.com",
+    },
+  ],
+  "In progress": Array [],
+  "To do": Array [],
+}
+`;
+
 exports[`App Wrapper correctly sorts cards in the state 1`] = `
 Object {
   "Done": Array [],

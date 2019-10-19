@@ -22,6 +22,16 @@ export const sortCards = (state, currentIndex, hoverIndex, column) => {
   return { ...state, [column]: sortedCards };
 };
 
+export const changeColumn = (state, index, sourceColumn, column) => {
+  const newSource = [...state[sourceColumn]];
+  newSource.splice(index, 1);
+  return {
+    ...state,
+    [sourceColumn]: newSource,
+    [column]: [...state[column], { ...state[sourceColumn][index], column }],
+  };
+};
+
 function App() {
   const [cards, setCards] = useLocalStorage({
     'To do': [
@@ -46,6 +56,11 @@ function App() {
     setCards,
   ]);
 
+  const setColumn = useCallback((...a) => setCards(changeColumn(cards, ...a)), [
+    cards,
+    setCards,
+  ]);
+
   return (
     <div className={css.appContainer}>
       <Header />
@@ -55,7 +70,9 @@ function App() {
             <Column
               key={column}
               title={column}
+              columns={columns}
               addCard={card => setNewCard({ ...card, column })}
+              changeCardColumn={setColumn}
             >
               {cards[column].map((card, i) => (
                 <Card
