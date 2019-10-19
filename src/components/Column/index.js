@@ -4,7 +4,7 @@ import AddCardForm from '../AddCardForm';
 
 import css from './index.module.css';
 
-const MAX_CARDS_PER_COLUMN = 3;
+const MAX_CARDS_PER_COLUMN = 100;
 
 const Column = ({ title, children, addCard, changeCardColumn, columns }) => {
   const [showAdd, setShowAdd] = useState();
