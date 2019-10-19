@@ -1,0 +1,31 @@
+.card {
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #e2e2e2;
+  list-style: none;
+  margin-bottom: 15px;
+  padding: 12px;
+}
+
+.card h3 {
+  color: #4364af;
+  font-size: 16px;
+  border-bottom: 1px dashed #dedede;
+  padding-bottom: 12px;
+  margin: 0;
+}
+
+.card h3 img {
+  vertical-align: middle;
+  border-radius: 50%;
+  border-bottom: 1px solid #dadada;
+  margin-right: 12px;
+  height: 24px;
+  width: 24px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #000;
+  line-height: 20px;
+}

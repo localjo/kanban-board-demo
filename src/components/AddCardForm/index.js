@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import css from './index.module.css';
+
 function AddCardForm({ addCard, close }) {
   const [values, setValues] = useState({
     title: '',
@@ -12,7 +14,7 @@ function AddCardForm({ addCard, close }) {
     close();
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.cardForm}>
       <label htmlFor="title">Title</label>
       <input
         autoFocus
@@ -35,8 +37,12 @@ function AddCardForm({ addCard, close }) {
         value={values.description}
         onChange={e => setValues({ ...values, description: e.target.value })}
       />
-      <button onClick={close}>Cancel</button>
-      <button onClick={handleSubmit}>Save task</button>
+      <div className={css.buttonRow}>
+        <button onClick={close}>Cancel</button>
+        <button onClick={handleSubmit} className={css.saveButton}>
+          Save task
+        </button>
+      </div>
     </form>
   );
 }

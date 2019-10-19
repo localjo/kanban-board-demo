@@ -1,0 +1,62 @@
+.cardForm {
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #dedede;
+  list-style: none;
+  padding: 12px;
+  margin: 16px 0 0 0;
+}
+
+.cardForm label {
+  font-weight: bold;
+  display: block;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.cardForm input,
+.cardForm textarea {
+  line-height: 30px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #dadada;
+  display: block;
+  width: 95%;
+  padding: 0 2%;
+}
+
+.cardForm button {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  display: inline-block;
+  border: none;
+  padding: 6px 12px;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: #222;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.cardForm .saveButton {
+  background: #47bb7f;
+  color: #fff;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+}
+
+.cardForm .saveButton:hover {
+  background: #369162;
+}
+
+.buttonRow {
+  margin-top: 12px;
+  width: 100%;
+  text-align: right;
+}

@@ -6,6 +6,8 @@ import Board from '../Board';
 import Card from '../Card';
 import Column from '../Column';
 
+import css from './index.module.css';
+
 export const addCard = (state, card) => {
   return {
     ...state,
@@ -33,7 +35,7 @@ function App() {
   ]);
 
   return (
-    <>
+    <div className={css.appContainer}>
       <Header />
       <Board>
         {columns.map(column => {
@@ -50,7 +52,7 @@ function App() {
           );
         })}
       </Board>
-    </>
+    </div>
   );
 }
 
