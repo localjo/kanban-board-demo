@@ -3,7 +3,7 @@ import md5 from 'md5';
 
 import css from './index.module.css';
 
-const Card = ({ title, description, email }) => {
+const Card = ({ title, description, email = '' }) => {
   return (
     <li className={css.card}>
       <h3>
