@@ -14,3 +14,30 @@ Object {
   ],
 }
 `;
+
+exports[`App Wrapper correctly sorts cards in the state 1`] = `
+Object {
+  "Done": Array [],
+  "In progress": Array [],
+  "To do": Array [
+    Object {
+      "column": "To do",
+      "description": "Test card",
+      "title": "Card Two",
+      "user": "example@example.com",
+    },
+    Object {
+      "column": "To do",
+      "description": "Test card",
+      "title": "Card Three",
+      "user": "example@example.com",
+    },
+    Object {
+      "column": "To do",
+      "description": "Test card",
+      "title": "Card One",
+      "user": "example@example.com",
+    },
+  ],
+}
+`;

@@ -15,6 +15,13 @@ export const addCard = (state, card) => {
   };
 };
 
+export const sortCards = (state, currentIndex, hoverIndex, column) => {
+  const sortedCards = [...state[column]];
+  sortedCards.splice(currentIndex, 1);
+  sortedCards.splice(hoverIndex, 0, state[column][currentIndex]);
+  return { ...state, [column]: sortedCards };
+};
+
 function App() {
   const [cards, setCards] = useLocalStorage({
     'To do': [
@@ -34,6 +41,11 @@ function App() {
     setCards,
   ]);
 
+  const setSort = useCallback((...a) => setCards(sortCards(cards, ...a)), [
+    cards,
+    setCards,
+  ]);
+
   return (
     <div className={css.appContainer}>
       <Header />
@@ -45,8 +57,14 @@ function App() {
               title={column}
               addCard={card => setNewCard({ ...card, column })}
             >
-              {cards[column].map(card => (
-                <Card {...card} key={card.title} />
+              {cards[column].map((card, i) => (
+                <Card
+                  {...card}
+                  key={card.title}
+                  column={column}
+                  index={i}
+                  sortCard={setSort}
+                />
               ))}
             </Column>
           );
