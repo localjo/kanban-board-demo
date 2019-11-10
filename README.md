@@ -1,4 +1,20 @@
-# Close Frontend Take-Home Challenge
+# Kanban Take-Home Challenge
+
+## Installation
+
+```
+git clone git@github.com:localjo/kanban-takehome.git
+cd kanban-takehome
+npm install
+```
+
+## Usage
+
+Start the app locally and open it in a browser
+
+```
+npm start
+```
 
 ## Outline and Self-Critique
 
@@ -13,10 +29,6 @@ In the end, due to problems with `react-dnd` and my architectural decisions with
 ## Screenshots
 
 Note: if these don't display in the README, they can be found in the `/screenshots/` directory of this repo.
-
-### Completed UI
-
-![Completed UI](/screenshots/completed-ui.png)
 
 ### Adding a Card
 

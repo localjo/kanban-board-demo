@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const STORAGE_KEY = '_close_Frontend_Takehome';
+const STORAGE_KEY = '_kanban_Takehome';
 
 const useLocalStorage = initial => {
   const [storedValue, setStoredValue] = useState(() => {
