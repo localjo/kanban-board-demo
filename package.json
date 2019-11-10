@@ -2,7 +2,9 @@
   "name": "kanban-takehome",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://localjo.github.io/kanban-takehome",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "md5": "^2.2.1",
     "react": "^16.9.0",
     "react-dnd": "^9.4.0",
@@ -20,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
