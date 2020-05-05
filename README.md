@@ -1,10 +1,9 @@
-# Kanban Take-Home Challenge
-
+# Kanban Board Demo
 ## Installation
 
 ```
-git clone git@github.com:localjo/kanban-takehome.git
-cd kanban-takehome
+git clone git@github.com:localjo/kanban-board-demo.git
+cd kanban-board-demo
 npm install
 ```
 
